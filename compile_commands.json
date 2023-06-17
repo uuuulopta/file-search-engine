@@ -1,0 +1,56 @@
+[
+{
+  "directory": "C:/Projects/search/build",
+  "command": "C:\\MinGW\\bin\\g++.exe -DSQLITE_ENABLE_COLUMN_METADATA @CMakeFiles/search.dir/includes_CXX.rsp -std=gnu++11 -o CMakeFiles\\search.dir\\main.cpp.obj -c C:\\Projects\\search\\main.cpp",
+  "file": "C:/Projects/search/main.cpp",
+  "output": "CMakeFiles/search.dir/main.cpp.obj"
+},
+{
+  "directory": "C:/Projects/search/build/SQLiteCpp",
+  "command": "C:\\MinGW\\bin\\g++.exe -DSQLITE_ENABLE_COLUMN_METADATA @CMakeFiles/SQLiteCpp.dir/includes_CXX.rsp  -Wall -Wextra -Wpedantic -Wswitch-enum -Wshadow -Wno-long-long -std=gnu++11 -o CMakeFiles\\SQLiteCpp.dir\\src\\Backup.cpp.obj -c C:\\Projects\\search\\SQLiteCpp\\src\\Backup.cpp",
+  "file": "C:/Projects/search/SQLiteCpp/src/Backup.cpp",
+  "output": "SQLiteCpp/CMakeFiles/SQLiteCpp.dir/src/Backup.cpp.obj"
+},
+{
+  "directory": "C:/Projects/search/build/SQLiteCpp",
+  "command": "C:\\MinGW\\bin\\g++.exe -DSQLITE_ENABLE_COLUMN_METADATA @CMakeFiles/SQLiteCpp.dir/includes_CXX.rsp  -Wall -Wextra -Wpedantic -Wswitch-enum -Wshadow -Wno-long-long -std=gnu++11 -o CMakeFiles\\SQLiteCpp.dir\\src\\Column.cpp.obj -c C:\\Projects\\search\\SQLiteCpp\\src\\Column.cpp",
+  "file": "C:/Projects/search/SQLiteCpp/src/Column.cpp",
+  "output": "SQLiteCpp/CMakeFiles/SQLiteCpp.dir/src/Column.cpp.obj"
+},
+{
+  "directory": "C:/Projects/search/build/SQLiteCpp",
+  "command": "C:\\MinGW\\bin\\g++.exe -DSQLITE_ENABLE_COLUMN_METADATA @CMakeFiles/SQLiteCpp.dir/includes_CXX.rsp  -Wall -Wextra -Wpedantic -Wswitch-enum -Wshadow -Wno-long-long -std=gnu++11 -o CMakeFiles\\SQLiteCpp.dir\\src\\Database.cpp.obj -c C:\\Projects\\search\\SQLiteCpp\\src\\Database.cpp",
+  "file": "C:/Projects/search/SQLiteCpp/src/Database.cpp",
+  "output": "SQLiteCpp/CMakeFiles/SQLiteCpp.dir/src/Database.cpp.obj"
+},
+{
+  "directory": "C:/Projects/search/build/SQLiteCpp",
+  "command": "C:\\MinGW\\bin\\g++.exe -DSQLITE_ENABLE_COLUMN_METADATA @CMakeFiles/SQLiteCpp.dir/includes_CXX.rsp  -Wall -Wextra -Wpedantic -Wswitch-enum -Wshadow -Wno-long-long -std=gnu++11 -o CMakeFiles\\SQLiteCpp.dir\\src\\Exception.cpp.obj -c C:\\Projects\\search\\SQLiteCpp\\src\\Exception.cpp",
+  "file": "C:/Projects/search/SQLiteCpp/src/Exception.cpp",
+  "output": "SQLiteCpp/CMakeFiles/SQLiteCpp.dir/src/Exception.cpp.obj"
+},
+{
+  "directory": "C:/Projects/search/build/SQLiteCpp",
+  "command": "C:\\MinGW\\bin\\g++.exe -DSQLITE_ENABLE_COLUMN_METADATA @CMakeFiles/SQLiteCpp.dir/includes_CXX.rsp  -Wall -Wextra -Wpedantic -Wswitch-enum -Wshadow -Wno-long-long -std=gnu++11 -o CMakeFiles\\SQLiteCpp.dir\\src\\Savepoint.cpp.obj -c C:\\Projects\\search\\SQLiteCpp\\src\\Savepoint.cpp",
+  "file": "C:/Projects/search/SQLiteCpp/src/Savepoint.cpp",
+  "output": "SQLiteCpp/CMakeFiles/SQLiteCpp.dir/src/Savepoint.cpp.obj"
+},
+{
+  "directory": "C:/Projects/search/build/SQLiteCpp",
+  "command": "C:\\MinGW\\bin\\g++.exe -DSQLITE_ENABLE_COLUMN_METADATA @CMakeFiles/SQLiteCpp.dir/includes_CXX.rsp  -Wall -Wextra -Wpedantic -Wswitch-enum -Wshadow -Wno-long-long -std=gnu++11 -o CMakeFiles\\SQLiteCpp.dir\\src\\Statement.cpp.obj -c C:\\Projects\\search\\SQLiteCpp\\src\\Statement.cpp",
+  "file": "C:/Projects/search/SQLiteCpp/src/Statement.cpp",
+  "output": "SQLiteCpp/CMakeFiles/SQLiteCpp.dir/src/Statement.cpp.obj"
+},
+{
+  "directory": "C:/Projects/search/build/SQLiteCpp",
+  "command": "C:\\MinGW\\bin\\g++.exe -DSQLITE_ENABLE_COLUMN_METADATA @CMakeFiles/SQLiteCpp.dir/includes_CXX.rsp  -Wall -Wextra -Wpedantic -Wswitch-enum -Wshadow -Wno-long-long -std=gnu++11 -o CMakeFiles\\SQLiteCpp.dir\\src\\Transaction.cpp.obj -c C:\\Projects\\search\\SQLiteCpp\\src\\Transaction.cpp",
+  "file": "C:/Projects/search/SQLiteCpp/src/Transaction.cpp",
+  "output": "SQLiteCpp/CMakeFiles/SQLiteCpp.dir/src/Transaction.cpp.obj"
+},
+{
+  "directory": "C:/Projects/search/build/SQLiteCpp/sqlite3",
+  "command": "C:\\MinGW\\bin\\gcc.exe -DSQLITE_ENABLE_COLUMN_METADATA @CMakeFiles/sqlite3.dir/includes_C.rsp  -o CMakeFiles\\sqlite3.dir\\sqlite3.c.obj -c C:\\Projects\\search\\SQLiteCpp\\sqlite3\\sqlite3.c",
+  "file": "C:/Projects/search/SQLiteCpp/sqlite3/sqlite3.c",
+  "output": "SQLiteCpp/sqlite3/CMakeFiles/sqlite3.dir/sqlite3.c.obj"
+}
+]

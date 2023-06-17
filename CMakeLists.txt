@@ -1,0 +1,11 @@
+cmake_minimum_required(VERSION 3.1)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+set(SQLITECPP_RUN_CPPCHECK OFF CACHE BOOL "" FORCE)
+set(SQLITECPP_RUN_CPPLINT OFF CACHE BOOL "" FORCE)
+add_subdirectory(SQLiteCpp)
+project(Search)
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+add_executable(search main.cpp)
+target_link_libraries(search
+  SQLiteCpp)
