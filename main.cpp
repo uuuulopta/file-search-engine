@@ -3,8 +3,13 @@
 #include <exception>
 #include <iostream>
 #include <algorithm>
-using namespace std;
+#include <fmt/format.h>
+#include <chrono>
 #include <SQLiteCpp/SQLiteCpp.h>
+using namespace std;
+typedef chrono::high_resolution_clock::time_point TimeVar;
+#define timeNow() chrono::high_resolution_clock::now()
+#define duration(t2,t1) chrono::duration_cast<std::chrono::milliseconds>(t2 - t1).count()
 #ifdef SQLITECPP_ENABLE_ASSERT_HANDLER
 namespace SQLite
 {
@@ -19,17 +24,26 @@ void assertion_failed(const char* apFile, const long apLine, const char* apFunc,
 #endif
 
 
+
 int main(int argc, char * argv[]){
     try{
-        Lexer lexer = Lexer("testfiles/dir1");
-        lexer.lex([](map<string,int> tokens,string file)->void{
-            DbHandler dbhandler = DbHandler("based");
-            for (auto const& [key, val] : tokens) {
-                dbhandler.handleToken(key, file, val);
-            }
-            dbhandler.printAll();
-         });
          
+        Lexer lexer = Lexer("testfiles");
+        DbHandler dbhandler = DbHandler("db");
+        int file_amount = lexer.getFiles().size();
+        for(int i = 1; i <= file_amount+1; i++){
+            TimeVar t1 = timeNow(); 
+            map<string,int> tokens =  lexer.lex();
+            string last_file = lexer.getLastFile();
+            for (auto const& [token, amount] : tokens) {
+                dbhandler.handleToken(token, last_file, amount);
+            }
+            TimeVar t2 = timeNow();
+            cout << fmt::format( "{} / {}  {}ms\t{}", i, file_amount,duration(t2,t1), last_file) << endl;
+
+
+        }
+        cout << "Done";
     } 
-    catch(exception& e){cout <<  e.what();}
+    catch(exception& e){cout << "Error: " <<  e.what();}
 }
