@@ -64,17 +64,35 @@ void DbHandler::handleToken(string token_name, string file_name,int amount){
     db.exec(query);
 }
 void DbHandler::calculateIFDF(){
-    // select sum(amount) from 
+const string query = "create table IDF as select file_id,token_id,(amount*1.0/total_file) * log10((select count(file_id) from files)/(tokencorpus*1.0)) as tfidf from (select file_id,sum(amount) as total_file from tokens_files natural join files group by file_id ) natural join tokens_files natural join (select token_id,count(token_id) as tokencorpus from tokens_files group by token_id)";
+SQLite::Statement stat(db,query);
+stat.exec();
 }
-void DbHandler::printAll(){
-    SQLite::Statement query(db,"SELECT `token_name`,`amount`,`file_name` FROM Tokens_Files natural join Tokens natural join Files");
-    cout << "printall";
-        
+
+void DbHandler::searchTerms(vector<string> terms){
+//TODO dangerous input
+string part1 = "select * from (select file_name from idf natural join files";
+string where = " where ";
+for(string term : terms){
+    int token = getTokenIdByName(term);
+    if(token == -1) continue;
+    where += fmt::format("token_id = {} or ",token);
+}
+where = where.substr(0, where.size()-4);
+string part2 = " group by file_id ORDER by tfidf DESC) limit 10";
+string query = part1 + where + part2;
+printQuery(query);
+}
+void DbHandler::printQuery(string statement){
+    int count = 1;
+    SQLite::Statement query(db,statement); 
+    int num = query.getColumnCount();
     while(query.executeStep()){
-            cout << ("execute!");
-        
-        std::cout << "row: " << query.getColumn(0)<< ", " << query.getColumn(1) << ", " << query.getColumn(2)<<endl;
-    
+        for(int i = 0 ; i < num; i++){
+            cout << count << ". " << query.getColumn(i);
+        }
+        cout << endl;
+        count++;
     }
 }
 DbHandler::~DbHandler(){

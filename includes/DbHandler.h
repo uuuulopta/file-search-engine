@@ -1,4 +1,5 @@
 #pragma once
+#include <vector>
 #include "SQLiteCpp/Database.h"
 #include <SQLiteCpp/SQLiteCpp.h>
 using namespace std;
@@ -14,9 +15,11 @@ public:
     void handleToken(string token_name,string file_name,int amount);
     void inputFile(string file_name);
     void inputToken(string file_name);
-    void printAll();
+    void printQuery(string statement);
+
     //get total occurances (when handling token add increase total occurance)
     //get the occurance for each file and divide it by total occurance.
     void calculateIFDF();
+    void searchTerms(vector<string> terms);
 };
 
