@@ -26,10 +26,14 @@ void assertion_failed(const char* apFile, const long apLine, const char* apFunc,
 
 
 int main(int argc, char * argv[]){
-    const string usage = "search [OPTIONS] [DIRECTORY/DATABASE] \nSearch engine for your files.\n --index\t Index recursively given directory\n --db   \t *REQUIRED Sets the output database if indexing, or if alone searches the given database\n";
+    const string usage = "search [OPTIONS] [DIRECTORY/DATABASE] \nSearch engine for your files.Currently filters files: md,txt,html\n\
+                          --index\t Index recursively given directory\n\t\t\t  --db (Requried) Sets the output database if indexing, or if alone searches the given database\n\
+                          --all \t Index all files regardless of file extension. ";
+
     bool index = false;
     string dir;
     string db;
+    bool filterExtensions = true;
     try{
         if(argc < 3){
             cout << usage;
@@ -43,7 +47,9 @@ int main(int argc, char * argv[]){
            else if(strcmp(argv[i],"--db") == 0){
                db = argv[i+1];
            }
-
+           else if(strcmp(argv[i],"--all") == 0){
+               filterExtensions = false;
+           }
         }
     }
     catch(exception& e){
@@ -54,12 +60,10 @@ int main(int argc, char * argv[]){
         exit(-1);
     } 
     try{
-        
-
         DbHandler dbhandler = DbHandler(db);
         if(!dir.empty()){
             cout << "Indexing..." << endl;
-            Lexer lexer = Lexer(dir);
+            Lexer lexer = Lexer(dir,filterExtensions);
             int file_amount = lexer.getFiles().size();
             for(int i = 1; i <= file_amount; i++){
                 TimeVar t1 = timeNow(); 

@@ -12,10 +12,10 @@
 using namespace std;
 using namespace icu;
 namespace fs = filesystem;
-Lexer::Lexer(string dir, size_t max_mem){
+Lexer::Lexer(string dir,bool filterExtensions, size_t max_mem){
     this->max_mem = max_mem;
     for (const auto & entry : fs::recursive_directory_iterator(dir))
-        if(!entry.is_directory() && regex_match(entry.path().u8string(),regex( "(.*)(.md)" )))
+        if(!entry.is_directory() && ( regex_match(entry.path().u8string(),regex( "^.*\.(html|md|txt)$" ) ) || !filterExtensions))
             this->files.push_back(entry.path().u8string() );
     
     if(files.empty()) throw invalid_argument("Directory is empty!");
