@@ -5,6 +5,7 @@
 ## Usage
 Currently only supported filetypes are those that are puerly textual. Use `--all`
 option to go through all files regardless of their extension (currently .txt, .md, .html)
+
 `./search --index [directory] --db [name]` index a directory and save it
 
 `./search --db [name]` search an already indexed directory
