@@ -84,17 +84,22 @@ int main(int argc, char * argv[]){
         string terms;
         string term;
         vector<string> termv;
-        getline(cin,terms);
-        for(char c : terms){
-            if(c == ' ') {
-               termv.push_back(term);          
-               term = "";
+        while(1){
+            cout << "Search: ";
+            getline(cin,terms);
+            for(char c : terms){
+                if(c == ' ') {
+                    termv.push_back(term);          
+                    term = "";
+                }
+                else term += c;
             }
-            else term += c;
+            termv.push_back(term);
+            dbhandler.searchTerms(termv);
+            terms.erase();
+            term.erase();
+            termv.clear();
         }
-        termv.push_back(term);
-        dbhandler.searchTerms(termv);
-
     } 
     
     catch(exception& e){cout << "Error: " <<  e.what() << endl;}
